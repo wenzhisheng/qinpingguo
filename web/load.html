@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<script type="text/javascript" src="https://static.600wap.com/800w/js/flexible.js"></script>
+		<link rel="stylesheet" href="https://static.600wap.com/800w/css/style.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<title>800W下载页</title>
+
+	</head>
+
+	<body>
+
+		<section class="load">
+			<section class="bar">
+				<div class="info">
+					<img src="https://static.600wap.com/800w/img/info.png" />
+				</div>
+				<div class="pro">
+					<div class="progress-bar pro-bar-info progress-bar-striped actived" style="width: 100%;">
+						<div class="progress-value">100%</div>
+					</div>
+				</div>
+			</section>
+			<!--弹窗-->
+			<section class="mask" id="info">
+				<img src="https://static.600wap.com/800w/img/a.png" />
+			</section>
+
+		</section>
+		<script>
+			setTimeout(
+				function() {
+					var elem = document.getElementById('info');
+					elem.style.display='block';
+				},
+				5000)
+		</script>
+
+	</body>
+
+</html>

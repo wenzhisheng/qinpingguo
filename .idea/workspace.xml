@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="17c8e71c-f600-49d6-be29-c6633cb556f2" name="Default Changelist" comment="8bet棋牌" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="guangtouqiang" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowEditorPreview>false</toolWindowEditorPreview>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>365</find>
+      <find>4</find>
+      <find>substring</find>
+      <find>listAppleUdid</find>
+      <find>proxyAccount</find>
+      <find>-b</find>
+      <find>selectAppleAccountInfo</find>
+      <find>appleAccountInfoVO1</find>
+      <find>appleAccountInfoVO2</find>
+      <find>appleAccountInfoVO3</find>
+      <find>appleAccountInfoVO</find>
+      <find>appleAccountInfoVO4</find>
+      <find>appleAccountInfoVO5</find>
+      <find>rest</find>
+      <find>return</find>
+      <find>/admin/static</find>
+      <find>appleUdidVO</find>
+      <find>appleUdid</find>
+      <find>appleAppididVO</find>
+      <find>identifier</find>
+      <find>provisioningProfiles</find>
+      <find>appIdId</find>
+      <find>ts</find>
+      <find>appleAccountInfo</find>
+      <find>300</find>
+      <find>appxz1</find>
+      <find>appxz9</find>
+      <find>checkRequest421</find>
+      <find>INTERCEPTING_DSESSIONID</find>
+      <find>DSESSIONID</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>CommonConst</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\Develop\Java\qinpingguos</dir>
+    </dirStrings>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Java\repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\Java\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1QzbDtwaDuSY2kLHORLsNkU5mfY" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SecurityJava</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="guangtouqiang" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545737534414" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\static\js" />
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\static\css" />
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\js" />
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\img" />
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.common.model" />
+      <recent name="com.admin.controller" />
+      <recent name="com.admin.appleudid.controller" />
+      <recent name="com.admin.appleappidid.controller" />
+      <recent name="com.common.appleappidid.service.impl" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\static" />
+      <recent name="D:\Develop\Java\qinpingguo-prod\qinpingguos-8et\admin\src\main\resources\js" />
+      <recent name="D:\Develop\Java\qinpingguos\admin\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Admin">
+    <configuration name="qinpingguo [package]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Admin" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.admin.AdminApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScheduleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="schedule" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.schedule.ScheduleApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Maven.qinpingguo [package]" />
+      <item itemvalue="Spring Boot.ScheduleApplication" />
+      <item itemvalue="Spring Boot.Admin" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.qinpingguo [package]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17c8e71c-f600-49d6-be29-c6633cb556f2" name="Default Changelist" comment="" />
+      <created>1541396191928</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541396191928</updated>
+      <workItem from="1541396195394" duration="521000" />
+      <workItem from="1541396892383" duration="105814000" />
+      <workItem from="1541682130983" duration="1815000" />
+      <workItem from="1541683987820" duration="39560000" />
+      <workItem from="1541835434252" duration="24776000" />
+      <workItem from="1541915279700" duration="85028000" />
+      <workItem from="1542172388483" duration="56067000" />
+      <workItem from="1542347700930" duration="15026000" />
+      <workItem from="1542365442585" duration="52913000" />
+      <workItem from="1542856920486" duration="9163000" />
+      <workItem from="1543031369436" duration="4212000" />
+      <workItem from="1543039674190" duration="1256000" />
+      <workItem from="1543041285457" duration="2320000" />
+      <workItem from="1543125401937" duration="185000" />
+      <workItem from="1543126861152" duration="321000" />
+      <workItem from="1543128053909" duration="14000" />
+      <workItem from="1543128087286" duration="97000" />
+      <workItem from="1543128387110" duration="14000" />
+      <workItem from="1543230551878" duration="107000" />
+      <workItem from="1543240521953" duration="1296000" />
+      <workItem from="1543241971199" duration="190000" />
+      <workItem from="1543294649721" duration="144000" />
+      <workItem from="1543298639600" duration="267000" />
+      <workItem from="1543327235055" duration="2000" />
+      <workItem from="1543377603685" duration="995000" />
+      <workItem from="1543401730656" duration="627000" />
+      <workItem from="1543491347295" duration="104000" />
+      <workItem from="1543491682605" duration="23000" />
+      <workItem from="1543491726361" duration="17543000" />
+      <workItem from="1543822424587" duration="13000" />
+      <workItem from="1543822507554" duration="18000" />
+      <workItem from="1543837895296" duration="918000" />
+      <workItem from="1543841559877" duration="736000" />
+      <workItem from="1544016327948" duration="39842000" />
+      <workItem from="1544704240252" duration="105000" />
+      <workItem from="1544713325548" duration="11378000" />
+      <workItem from="1544949321017" duration="683000" />
+      <workItem from="1545193928890" duration="28865000" />
+      <workItem from="1545292787428" duration="8961000" />
+      <workItem from="1545626459562" duration="15386000" />
+      <workItem from="1545712415452" duration="28000" />
+      <workItem from="1545723266759" duration="8831000" />
+      <workItem from="1558965681084" duration="687000" />
+      <workItem from="1559223853991" duration="46000" />
+      <workItem from="1568776257103" duration="1990000" />
+    </task>
+    <task id="LOCAL-00001" summary="创建文件、账号更新">
+      <created>1541918294375</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541918294375</updated>
+    </task>
+    <task id="LOCAL-00002" summary="获取账号">
+      <created>1541922942257</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541922942257</updated>
+    </task>
+    <task id="LOCAL-00003" summary="...">
+      <created>1541943927442</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541943927442</updated>
+    </task>
+    <task id="LOCAL-00004" summary="...">
+      <created>1542001919488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542001919488</updated>
+    </task>
+    <task id="LOCAL-00005" summary="更新bug">
+      <created>1542195772581</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1542195772581</updated>
+    </task>
+    <task id="LOCAL-00006" summary="检查登录">
+      <created>1542196261921</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542196261921</updated>
+    </task>
+    <task id="LOCAL-00007" summary="...">
+      <created>1542196295002</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542196295002</updated>
+    </task>
+    <task id="LOCAL-00008" summary="优化">
+      <created>1542371632469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1542371632469</updated>
+    </task>
+    <task id="LOCAL-00009" summary="优化名称">
+      <created>1542372108952</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1542372108952</updated>
+    </task>
+    <task id="LOCAL-00010" summary="控制访问">
+      <created>1542377891109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542377891109</updated>
+    </task>
+    <task id="LOCAL-00011" summary="重复添加">
+      <created>1542432186562</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1542432186562</updated>
+    </task>
+    <task id="LOCAL-00012" summary="加会话状态">
+      <created>1542440665849</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1542440665849</updated>
+    </task>
+    <task id="LOCAL-00013" summary="...">
+      <created>1542442974617</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1542442974617</updated>
+    </task>
+    <task id="LOCAL-00014" summary="xs与下载路径">
+      <created>1542452762608</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1542452762608</updated>
+    </task>
+    <task id="LOCAL-00015" summary="首页">
+      <created>1542452872563</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1542452872563</updated>
+    </task>
+    <task id="LOCAL-00016" summary="会话过期重新获取">
+      <created>1542456196949</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1542456196949</updated>
+    </task>
+    <task id="LOCAL-00017" summary="sql">
+      <created>1542458434884</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542458434884</updated>
+    </task>
+    <task id="LOCAL-00018" summary="配置文件">
+      <created>1542460934048</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1542460934048</updated>
+    </task>
+    <task id="LOCAL-00019" summary="基础属性">
+      <created>1542608940191</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1542608940191</updated>
+    </task>
+    <task id="LOCAL-00020" summary="log4j2">
+      <created>1542863223684</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1542863223684</updated>
+    </task>
+    <task id="LOCAL-00021" summary="600w">
+      <created>1543127175808</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1543127175808</updated>
+    </task>
+    <task id="LOCAL-00022" summary="600w">
+      <created>1543128182741</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1543128182741</updated>
+    </task>
+    <task id="LOCAL-00023" summary="日志">
+      <created>1543230677578</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1543230677578</updated>
+    </task>
+    <task id="LOCAL-00024" summary="...">
+      <created>1543294760341</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1543294760341</updated>
+    </task>
+    <task id="LOCAL-00025" summary="800w">
+      <created>1543492617818</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1543492617818</updated>
+    </task>
+    <task id="LOCAL-00026" summary="800数据库">
+      <created>1543494187263</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1543494187263</updated>
+    </task>
+    <task id="LOCAL-00027" summary="页面">
+      <created>1543499885957</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543499885957</updated>
+    </task>
+    <task id="LOCAL-00028" summary="800w页面">
+      <created>1543558531336</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543558531336</updated>
+    </task>
+    <task id="LOCAL-00029" summary="代理">
+      <created>1543837792896</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1543837792896</updated>
+    </task>
+    <task id="LOCAL-00030" summary="8bet">
+      <created>1544595000744</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1544595000744</updated>
+    </task>
+    <task id="LOCAL-00031" summary="8bet与代码调整">
+      <created>1544703404693</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1544703404693</updated>
+    </task>
+    <task id="LOCAL-00032" summary="静态变量">
+      <created>1544704344227</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1544704344227</updated>
+    </task>
+    <task id="LOCAL-00033" summary="8bet棋牌">
+      <created>1545295251213</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1545295251213</updated>
+    </task>
+    <task id="LOCAL-00034" summary="优化">
+      <created>1545656036868</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1545656036868</updated>
+    </task>
+    <task id="LOCAL-00035" summary="8bet棋牌">
+      <created>1545723462918</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1545723462918</updated>
+    </task>
+    <task id="LOCAL-00036" summary="8bet棋牌">
+      <created>1545737353070</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1545737353070</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="检查登录" />
+    <MESSAGE value="优化名称" />
+    <MESSAGE value="控制访问" />
+    <MESSAGE value="重复添加" />
+    <MESSAGE value="加会话状态" />
+    <MESSAGE value="xs与下载路径" />
+    <MESSAGE value="首页" />
+    <MESSAGE value="会话过期重新获取" />
+    <MESSAGE value="sql" />
+    <MESSAGE value="配置文件" />
+    <MESSAGE value="基础属性" />
+    <MESSAGE value="log4j2" />
+    <MESSAGE value="600w" />
+    <MESSAGE value="日志" />
+    <MESSAGE value="..." />
+    <MESSAGE value="800w" />
+    <MESSAGE value="800数据库" />
+    <MESSAGE value="页面" />
+    <MESSAGE value="800w页面" />
+    <MESSAGE value="代理" />
+    <MESSAGE value="8bet" />
+    <MESSAGE value="8bet与代码调整" />
+    <MESSAGE value="静态变量" />
+    <MESSAGE value="优化" />
+    <MESSAGE value="8bet棋牌" />
+    <option name="LAST_COMMIT_MESSAGE" value="8bet棋牌" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>deviceNumbers</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getServletContext();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getServletContext().getAttribute(&quot;0d799d84044d6daf960de3a7df378968cb23923b&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getServletContext()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getServletContext().getAttribute(deviceNumbers);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jsonObject</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jsonObject.get(&quot;provisioningProfiles&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jsonObject.get(&quot;resultCode&quot;).toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>provisioningProfile = CurlUtils.getProvisioningProfile(cookie, csrf, csrf_ts, appleAccountInfo.getTeamId(), provisioningProfileId, dsessionId);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>admin:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>admin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.alibaba:druid:1.0.25</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

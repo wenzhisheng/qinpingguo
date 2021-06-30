@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.appleudid.dao.IAppleUdidDao">
+
+    <!-- 基础字段 -->
+    <sql id="Base_Column_List" >
+        APPLE_UDID_ID AS appleUdidId,
+        TEAM_ID AS teamId,
+        DEVICE_NUMBERS AS deviceNumbers,
+        CREATION_TIME AS creationTime,
+        LAST_UPDATED_TIME AS lastUpdatedTime
+    </sql>
+
+    <!-- 查询条件 -->
+    <sql id="search_condition">
+        WHERE 1=1
+        <if test="vo.teamId != null">
+            and TEAM_ID = #{vo.teamId,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.deviceNumbers != null">
+            and DEVICE_NUMBERS = #{vo.deviceNumbers,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.startDate != null">
+            and CREATION_TIME &gt;= #{vo.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="vo.endDate != null">
+            and CREATION_TIME &lt;= #{vo.endDate,jdbcType=TIMESTAMP}
+        </if>
+        ORDER BY CREATION_TIME DESC
+    </sql>
+
+    <!-- 添加设备号 -->
+    <insert id="insertAppleUdid" parameterType="com.common.model.AppleUdidVO">
+		INSERT INTO t_apple_udid(
+        APPLE_UDID_ID,
+        TEAM_ID,
+        DEVICE_NUMBERS,
+        CREATION_TIME,
+        LAST_UPDATED_TIME
+        )
+		VALUES(
+        #{vo.appleUdidId,jdbcType=INTEGER},
+        #{vo.teamId,jdbcType=VARCHAR},
+        #{vo.deviceNumbers,jdbcType=VARCHAR},
+        NOW(),
+        NOW()
+        )
+	</insert>
+
+    <!-- 更新设备号 -->
+    <update id="updateAppleUdid" parameterType="com.common.model.AppleUdidVO">
+        UPDATE t_apple_udid
+        <set>
+            <if test="vo.teamId != null">
+                TEAM_ID = #{vo.teamId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.deviceNumbers != null">
+                DEVICE_NUMBERS = #{vo.deviceNumbers,jdbcType=VARCHAR},
+            </if>
+            LAST_UPDATED_TIME=NOW()
+        </set>
+        WHERE APPLE_UDID_ID = #{vo.appleUdidId,jdbcType=INTEGER}
+    </update>
+
+    <!-- 分页查询设备号 -->
+    <select id="findByAppleUdidPage" resultType="com.common.model.AppleUdidVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_udid
+        <include refid="search_condition"/>
+        LIMIT #{page.startIndex}, #{page.endIndex}
+    </select>
+    <select id="findByAppleUdidPageCount" resultType="int">
+        SELECT
+        COUNT(*)
+        FROM t_apple_udid
+        <include refid="search_condition"/>
+    </select>
+
+    <!-- 列表查询设备号-->
+    <select id="listAppleUdid" resultType="com.common.model.AppleUdidVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_udid
+        <include refid="search_condition"/>
+    </select>
+
+    <!-- 删除设备号 -->
+    <delete id="deleteAppleUdid" parameterType="java.lang.Integer">
+        DELETE FROM t_apple_udid
+        WHERE APPLE_UDID_ID IN
+        <foreach collection="vo.appleUdidIds" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

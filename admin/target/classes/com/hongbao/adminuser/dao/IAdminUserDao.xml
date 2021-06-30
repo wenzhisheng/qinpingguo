@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongbao.adminuser.dao.IAdminUserDao">
+
+  <!--.....................................................业务SQL............................................... -->
+
+  <sql id="base_sql">
+    t.USER_ID  userId,
+    t.USER_SYSTEM_ID userSystemId ,
+    t.USER_ACCOUNT  userAccount,
+    t.COMPANY_ID  companyId ,
+    t.USER_PASSWORD userPassword ,
+    t.USER_TYPE userType ,
+    t.TELPHONE telphone ,
+    t.EMAIL email ,
+    t.IS_ENABLE isEnable ,
+    t.admin_key adminKey ,
+    t.CREATION_TIME creationTime,
+    t.CREATION_BY creationBy,
+    t.LAST_UPDATED_TIME lastUpdatedTime,
+    t.LAST_UPDATED_BY lastUpdatedBy
+  </sql>
+
+  <sql id="search_condition_admin">
+    WHERE  1 = 1
+    <if test="vo.userAccount != null">
+      and t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+    </if>
+    order by t.LAST_UPDATED_TIME desc
+  </sql>
+
+    <sql id="search_condition_proxy">
+        WHERE  1 = 1
+        <if test="vo.userAccount != null">
+            and t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+        </if>
+      order by t.LAST_UPDATED_TIME desc
+    </sql>
+
+  <select id="findByAdminUserList"  resultType="com.hongbao.common.model.AdminUserVO">
+    select
+    <include refid="base_sql"/>
+    from t_admin_user t
+  </select>
+
+  <select id="login" resultType="com.hongbao.common.model.AdminUserVO">
+    SELECT
+    <include refid = "base_sql" />
+     ,t.USER_ACCOUNT currentUser
+    FROM
+    t_admin_user t
+    WHERE
+     t.USER_ACCOUNT = #{adminUser.userAccount} and t.USER_PASSWORD = #{adminUser.userPassword}
+  </select>
+
+  <select id="findByAdminUserPageResult" resultType="com.hongbao.common.model.AdminUserVO">
+    select
+    <include refid="base_sql"/>
+    from t_admin_user t
+    <include refid="search_condition_admin"/>
+    LIMIT #{page.startIndex},#{page.endIndex}
+  </select>
+
+  <select id="findByAdminUserPageResultCount" resultType="int">
+    select
+    count(0)
+    from t_admin_user t
+    <include refid="search_condition_admin"/>
+  </select>
+
+
+
+    <update id="updateByPrimaryKey" parameterType="com.hongbao.common.model.AdminUserVO">
+      update t_admin_user t
+      <set>
+        <if test="vo.userPassword != null">
+          USER_PASSWORD = #{vo.userPassword,jdbcType=VARCHAR},
+        </if>
+        <if test="vo.telphone != null">
+          TELPHONE = #{vo.telphone,jdbcType=VARCHAR},
+        </if>
+        <if test="vo.email != null">
+          EMAIL = #{vo.email,jdbcType=VARCHAR},
+        </if>
+        <if test="vo.isEnable != null">
+          IS_ENABLE = #{vo.isEnable,jdbcType=CHAR},
+        </if>
+        <if test="1 == 1">
+          LAST_UPDATED_TIME = sysdate(),
+        </if>
+        <if test="1 == 1">
+          LAST_UPDATED_BY = #{vo.currentUser,jdbcType=VARCHAR},
+        </if>
+      </set>
+      where t.USER_TYPE = '2'  and
+      USER_ID = #{vo.userId,jdbcType=INTEGER}
+    </update>
+
+    <select id="findByAdminUserProxyPageResult" resultType="com.hongbao.common.model.AdminUserVO">
+        select
+        <include refid="base_sql"/>
+        from t_admin_user t
+        <include refid="search_condition_proxy"/>
+        LIMIT #{page.startIndex},#{page.endIndex}
+    </select>
+
+    <select id="findByAdminUserProxyPageResultCount" resultType="int">
+        select
+        count(0)
+        from t_admin_user t
+        <include refid="search_condition_proxy"/>
+    </select>
+
+
+  <insert id="insertAdminUser" >
+    insert into t_admin_user ( USER_SYSTEM_ID, USER_ACCOUNT,
+    COMPANY_ID, USER_PASSWORD, USER_TYPE,
+    TELPHONE, EMAIL, IS_ENABLE,
+    CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME,
+    LAST_UPDATED_BY)
+    values ( #{vo.userSystemId,jdbcType=VARCHAR}, #{vo.userAccount,jdbcType=VARCHAR},
+    null, #{vo.userPassword,jdbcType=VARCHAR}, #{vo.userType,jdbcType=CHAR},
+    #{vo.telphone,jdbcType=VARCHAR}, #{vo.email,jdbcType=VARCHAR}, #{vo.isEnable,jdbcType=CHAR},
+    SYSDATE(), #{vo.currentUser,jdbcType=VARCHAR}, SYSDATE(),
+    #{vo.currentUser,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByAdminUser" parameterType="com.hongbao.common.model.AdminUserVO">
+    update t_admin_user t
+    <set>
+      <if test="vo.userPassword != null">
+        USER_PASSWORD = #{vo.userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.telphone != null">
+        TELPHONE = #{vo.telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.email != null">
+        EMAIL = #{vo.email,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.isEnable != null">
+        IS_ENABLE = #{vo.isEnable,jdbcType=CHAR},
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_TIME = sysdate(),
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_BY = #{vo.currentUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where
+    USER_ID = #{vo.userId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findByAdminUserVO" resultType="com.hongbao.common.model.AdminUserVO">
+    SELECT
+    <include refid="base_sql"/>
+    FROM t_admin_user t where  t.USER_TYPE = '1' and t.USER_ID = #{vo.userId,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByAdminUserId" resultType="int">
+    SELECT count(0) from t_admin_user t where  t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updatePasswrod" parameterType="com.hongbao.common.model.AdminUserVO">
+    UPDATE t_admin_user t
+      SET t.USER_PASSWORD = #{vo.userPassword,jdbcType=VARCHAR}
+     WHERE
+	t.USER_ID = #{vo.userId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findPasswordByUserId" resultType="com.hongbao.common.model.AdminUserVO">
+    SELECT
+    t.USER_PASSWORD userPassword
+     from t_admin_user t
+      WHERE
+	t.USER_ID = #{vo.userId,jdbcType=INTEGER}
+  </select>
+</mapper>

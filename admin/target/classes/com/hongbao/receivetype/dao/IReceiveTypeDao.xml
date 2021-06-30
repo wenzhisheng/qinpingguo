@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongbao.receivetype.dao.IReceiveTypeDao">
+
+
+  <sql id="base_sql">
+    t.RECEIVE_TYPE_ID  receiveTypeId,
+    t.TYPE_NAME typeName ,
+    t.TOTAL_COUNT totalCount ,
+    t.TOTAL_AMOUNT totalAmount ,
+    t.MIN_AMOUNT minAmount ,
+    t.MAX_AMOUNT maxAmount ,
+    t.CREATION_TIME creationTime,
+    t.CREATION_BY creationBy,
+    t.LAST_UPDATED_TIME lastUpdatedTime,
+    t.LAST_UPDATED_BY lastUpdatedBy
+  </sql>
+
+  <sql id="search_condition">
+    WHERE 1 = 1
+    <if test="vo.typeName != null">
+      and t.TYPE_NAME = #{vo.typeName,jdbcType=VARCHAR}
+    </if>
+    order by t.LAST_UPDATED_TIME desc
+  </sql>
+
+
+  <select id="findByReceiveTypePageResult"  resultType="com.hongbao.common.model.ReceiveTypeVO">
+    select 
+    <include refid="base_sql" />
+    from t_receive_type t
+    <include refid="search_condition"/>
+    LIMIT #{page.startIndex},#{page.endIndex}
+  </select>
+
+  <select id="findByReceiveTypePageResultCount"  resultType="int">
+    select
+    count(0)
+    from t_receive_type t
+    <include refid="search_condition"/>
+  </select>
+
+  <insert id="insertReceiveType" >
+    insert into t_receive_type ( TYPE_NAME, TOTAL_COUNT, 
+      TOTAL_AMOUNT, MIN_AMOUNT, MAX_AMOUNT, 
+      CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME, 
+      LAST_UPDATED_BY)
+    values ( #{vo.typeName,jdbcType=VARCHAR}, #{vo.totalCount,jdbcType=INTEGER}, 
+      #{vo.totalAmount,jdbcType=DECIMAL}, #{vo.minAmount,jdbcType=DECIMAL}, #{vo.maxAmount,jdbcType=DECIMAL}, 
+      SYSDATE(), #{vo.currentUser,jdbcType=VARCHAR}, SYSDATE(),
+      #{vo.currentUser,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateReceiveType" >
+    update t_receive_type
+    <set>
+      <if test="vo.typeName != null">
+        TYPE_NAME = #{vo.typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.totalCount != null">
+        TOTAL_COUNT = #{vo.totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="vo.totalAmount != null">
+        TOTAL_AMOUNT = #{vo.totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="vo.minAmount != null">
+        MIN_AMOUNT = #{vo.minAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="vo.maxAmount != null">
+        MAX_AMOUNT = #{vo.maxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_TIME = sysdate(),
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_BY = #{vo.currentUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECEIVE_TYPE_ID = #{vo.receiveTypeId,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteReceiveType" >
+    delete from t_receive_type
+    where RECEIVE_TYPE_ID = #{vo.receiveTypeId,jdbcType=INTEGER}
+  </delete>
+
+  <delete id="deleteHongbaoDate" >
+    delete from T_HONGBAO_DATE
+  </delete>
+
+  <select id="findByHongbaoDate"  resultType="com.hongbao.common.model.HongBaoDateVO">
+    select
+    t.START_DATE start_time,t.END_DATE end_time
+    from T_HONGBAO_DATE t
+  </select>
+
+  <insert id="insertOrUpdateDate" >
+    insert into T_HONGBAO_DATE ( START_DATE, END_DATE,
+    CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME,
+    LAST_UPDATED_BY)
+    values (#{vo.start_time,jdbcType=VARCHAR}, #{vo.end_time,jdbcType=VARCHAR},
+    SYSDATE(), #{vo.currentUser,jdbcType=VARCHAR}, SYSDATE(),
+    #{vo.currentUser,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="findByReceiveType"  resultType="com.hongbao.common.model.ReceiveTypeVO">
+    select
+    <include refid="base_sql" />
+    from t_receive_type t
+    where t.TOTAL_COUNT = #{vo.totalCount}
+  </select>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.adminuser.dao.IAdminUserDao">
+
+  <sql id="base_sql">
+    t.USER_ID userId,
+    t.USER_ACCOUNT userAccount,
+    t.USER_PASSWORD userPassword,
+    t.CREATION_TIME creationTime,
+    t.LAST_UPDATED_TIME lastUpdatedTime
+  </sql>
+
+  <!-- 登录 -->
+  <select id="login" resultType="com.common.model.AdminUserVO">
+    SELECT
+      <include refid = "base_sql" />
+    FROM
+      t_admin_user t
+    WHERE 1=1
+      and USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+      and USER_PASSWORD = #{vo.userPassword,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

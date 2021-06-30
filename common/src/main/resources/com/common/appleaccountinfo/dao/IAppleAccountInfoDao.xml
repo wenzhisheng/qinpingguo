@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.appleaccountinfo.dao.IAppleAccountInfoDao">
+
+    <!-- 基础字段 -->
+    <sql id="Base_Column_List" >
+        APPLE_ACCOUNT_INFO_ID AS appleAccountInfoId,
+        TEAM_ID AS teamId,
+        COOKIE_VALUE AS cookieValue,
+        DSESSIONID AS dsessionId,
+        CSRF AS csrf,
+        CSRF_TS AS csrfTs,
+        FILE_PATH AS filePath,
+        SHELL_PATH AS shellPath,
+        IS_ENABLE AS isEnable,
+        IS_SESSION AS isSession,
+        DEVICE_LENGTH AS deviceLength,
+        CREATION_TIME AS creationTime,
+        LAST_UPDATED_TIME AS lastUpdatedTime
+    </sql>
+
+    <!-- 查询条件 -->
+    <sql id="search_condition">
+        WHERE 1=1
+        <if test="vo.teamId != null">
+            and TEAM_ID = #{vo.teamId,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.cookieValue != null">
+            and COOKIE_VALUE = #{vo.cookieValue,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.dsessionId != null">
+            and DSESSIONID = #{vo.dsessionId,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.csrf != null">
+            and CSRF = #{vo.csrf,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.csrfTs != null">
+            and CSRF_TS = #{vo.csrfTs,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.filePath != null">
+            and FILE_PATH = #{vo.filePath,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.shellPath != null">
+            and SHELL_PATH = #{vo.shellPath,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.isEnable != null">
+            and IS_ENABLE = #{vo.isEnable,jdbcType=INTEGER}
+        </if>
+        <if test="vo.isSession != null">
+            and IS_SESSION = #{vo.isSession,jdbcType=INTEGER}
+        </if>
+        <if test="vo.deviceLength != null">
+            and DEVICE_LENGTH = #{vo.deviceLength,jdbcType=INTEGER}
+        </if>
+        <if test="vo.deviceLength == 101">
+            and DEVICE_LENGTH &lt; #{vo.deviceLength,jdbcType=INTEGER}
+        </if>
+        <if test="vo.startDate != null">
+            and CREATION_TIME &gt;= #{vo.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="vo.endDate != null">
+            and CREATION_TIME &lt;= #{vo.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </sql>
+
+    <!-- 提交苹果账号信息 -->
+    <insert id="insertAppleAccountInfo" parameterType="com.common.model.AppleAccountInfoVO">
+		INSERT INTO t_apple_account_info(
+        TEAM_ID,
+        COOKIE_VALUE,
+        DSESSIONID,
+        CSRF,
+        CSRF_TS,
+        FILE_PATH,
+        SHELL_PATH,
+        IS_ENABLE,
+        IS_SESSION,
+        DEVICE_LENGTH,
+        CREATION_TIME,
+        LAST_UPDATED_TIME
+        )
+		VALUES(
+        #{vo.teamId,jdbcType=VARCHAR},
+        #{vo.cookieValue,jdbcType=VARCHAR},
+        #{vo.dsessionId,jdbcType=VARCHAR},
+        #{vo.csrf,jdbcType=VARCHAR},
+        #{vo.csrfTs,jdbcType=VARCHAR},
+        #{vo.filePath,jdbcType=VARCHAR},
+        #{vo.shellPath,jdbcType=VARCHAR},
+        #{vo.isEnable,jdbcType=INTEGER},
+        #{vo.isSession,jdbcType=INTEGER},
+        #{vo.deviceLength,jdbcType=INTEGER},
+        NOW(),
+        NOW()
+        )
+	</insert>
+
+    <!-- 更新苹果账号信息 -->
+    <update id="updateAppleAccountInfo" parameterType="com.common.model.AppleAccountInfoVO">
+        UPDATE t_apple_account_info
+        <set>
+            <if test="vo.teamId != null">
+                TEAM_ID = #{vo.teamId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.cookieValue != null">
+                COOKIE_VALUE = #{vo.cookieValue,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.dsessionId != null">
+                DSESSIONID = #{vo.dsessionId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.csrf != null">
+                CSRF = #{vo.csrf,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.csrfTs != null">
+                CSRF_TS = #{vo.csrfTs,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.filePath != null">
+                FILE_PATH = #{vo.filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.shellPath != null">
+                SHELL_PATH = #{vo.shellPath,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.isEnable != null">
+                IS_ENABLE = #{vo.isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="vo.isSession != null">
+                IS_SESSION = #{vo.isSession,jdbcType=INTEGER},
+            </if>
+            <if test="vo.deviceLength != null">
+                DEVICE_LENGTH = #{vo.deviceLength,jdbcType=INTEGER},
+            </if>
+            LAST_UPDATED_TIME=NOW()
+        </set>
+        WHERE APPLE_ACCOUNT_INFO_ID = #{vo.appleAccountInfoId,jdbcType=INTEGER}
+    </update>
+
+    <!-- 更新苹果账号会话状态 -->
+    <update id="updateAppleAccountInfoIsSession" parameterType="com.common.model.AppleAccountInfoVO">
+        UPDATE t_apple_account_info
+        <set>
+            <if test="vo.isSession != null">
+                IS_SESSION = #{vo.isSession,jdbcType=INTEGER},
+            </if>
+            LAST_UPDATED_TIME=NOW()
+        </set>
+        WHERE TEAM_ID = #{vo.teamId,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 更新苹果账号信息421 -->
+    <update id="updateAppleAccountInfo421" parameterType="com.common.model.AppleAccountInfoVO">
+        UPDATE t_apple_account_info
+        <set>
+            <if test="vo.cookieValue != null">
+                COOKIE_VALUE = #{vo.cookieValue,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.dsessionId != null">
+                DSESSIONID = #{vo.dsessionId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.csrf != null">
+                CSRF = #{vo.csrf,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.csrfTs != null">
+                CSRF_TS = #{vo.csrfTs,jdbcType=VARCHAR},
+            </if>
+            LAST_UPDATED_TIME=NOW()
+        </set>
+        WHERE TEAM_ID = #{vo.teamId,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 分页查询苹果账号信息 -->
+    <select id="findByAppleAccountInfoPage" resultType="com.common.model.AppleAccountInfoVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_account_info
+        <include refid="search_condition"/>
+        ORDER BY CREATION_TIME DESC
+        LIMIT #{page.startIndex}, #{page.endIndex}
+    </select>
+    <select id="findByAppleAccountInfoPageCount" resultType="int">
+        SELECT COUNT(*)
+        FROM t_apple_account_info
+        <include refid="search_condition"/>
+        ORDER BY CREATION_TIME DESC
+    </select>
+
+    <!-- 查询苹果账号信息 -->
+    <select id="selectAppleAccountInfo" resultType="com.common.model.AppleAccountInfoVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_account_info
+        <include refid="search_condition"/>
+        ORDER BY LAST_UPDATED_TIME ASC LIMIT 0,1
+    </select>
+
+    <!-- 列表查询苹果账号信息，定时任务遍历 -->
+    <select id="listAppleAccountInfo" resultType="com.common.model.AppleAccountInfoVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_account_info
+        <include refid="search_condition"/>
+        ORDER BY LAST_UPDATED_TIME ASC
+    </select>
+
+    <!-- 删除苹果账号信息 -->
+    <delete id="deleteAppleAccountInfo" parameterType="java.lang.Integer">
+        DELETE FROM t_apple_account_info
+        WHERE APPLE_ACCOUNT_INFO_ID IN
+        <foreach collection="vo.appleAccountInfoIds" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

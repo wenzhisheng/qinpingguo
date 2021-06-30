@@ -1,0 +1,7 @@
+com\admin\adminuser\controller\AdminUserController.class
+com\admin\AdminApplication.class
+com\admin\appleudid\controller\AppleUdidController.class
+com\admin\udid\UdidController.class
+com\admin\interceptor\WebConfig.class
+com\admin\appleappidid\controller\AppleAppididController.class
+com\admin\appleaccountinfo\controller\AppleAccountInfoController.class

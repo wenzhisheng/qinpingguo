@@ -1,0 +1,222 @@
+/*下载页面*/
+
+.main {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background: #0f1928 url(../img/bg1.png) no-repeat ;
+	background-size: cover;
+}
+
+
+.main .down {
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -2.5rem;
+}
+
+@media screen and (max-width: 370px) {
+	.main .down {
+		top: 41%;
+	}
+}
+@media screen and (min-height: 740px) {
+	.main  {
+		background-size: contain;
+	}
+}
+
+.main .down a img {
+	width: 5rem;
+    height: 1.5rem;
+}
+
+.main .now {
+	position: absolute;
+	top: 66%;
+	right: 12%;
+}
+
+
+.main .now a img {
+	width: 2.9rem;
+	height: .6rem;
+}
+
+
+/*load*/
+
+.load {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background: #0f1928 url(../img/bg2.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+@media screen and (min-height: 740px) {
+	.load  {
+		background-size: contain;
+	}
+}
+.bar {
+	position: absolute;
+	top: 30%;
+}
+
+.info {
+	text-align: center;
+}
+
+.info img {
+	width: 60%;
+	opacity: 0;
+}
+
+.pro {
+	height: 10px;
+	margin-left: 18%;
+	width: 64%;
+	background: #262626;
+	overflow: visible;
+	border-radius: 20px;
+	margin-top: 25px;
+}
+
+.pro .progress-bar {
+	border-radius: 10px;
+	position: relative;
+	animation: animate-positive 5s;
+}
+
+.pro .progress-value {
+	display: block;
+	padding: 3px 7px;
+	font-size: 13px;
+	color: #fff;
+	border-radius: 10px;
+	background: #191919;
+	border: 1px solid #000;
+	position: absolute;
+	top: 30px;
+	right: -23px;
+}
+
+.pro .progress-value:after {
+	content: "";
+	border-bottom: 10px solid #191919;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	position: absolute;
+	top: -10px;
+	left: 26%;
+}
+
+.progress-bar.actived {
+	animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 5s;
+}
+
+@-webkit-keyframes animate-positive {
+	0% {
+		width: 0;
+	}
+}
+
+@keyframes animate-positive {
+	0% {
+		width: 0;
+	}
+}
+
+.pro-bar-info {
+	background-color: #fcb811 !important;
+}
+
+#info {
+	display: none;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.mask img {
+	width: 100%;
+	height: 100%;
+}
+
+.loading {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background: #0f1928 url(../img/load.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#loader {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #ffa401;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

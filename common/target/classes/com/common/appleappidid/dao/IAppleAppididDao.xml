@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.appleappidid.dao.IAppleAppididDao">
+
+    <!-- 基础字段 -->
+    <sql id="Base_Column_List" >
+        APPLE_APPIDID_ID AS appleAppidid,
+        TEAM_ID AS teamId,
+        APPIDID AS appleIdId,
+        APPIDID_PATH AS appleididPath,
+        CREATION_TIME AS creationTime,
+        LAST_UPDATED_TIME AS lastUpdatedTime
+    </sql>
+
+    <!-- 查询条件 -->
+    <sql id="search_condition">
+        WHERE 1=1
+        <if test="vo.teamId != null">
+            and TEAM_ID = #{vo.teamId,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.appleIdId != null">
+            and APPIDID = #{vo.appleIdId,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.appleididPath != null">
+            and APPIDID_PATH = #{vo.appleididPath,jdbcType=VARCHAR}
+        </if>
+        <if test="vo.startDate != null">
+            and CREATION_TIME &gt;= #{vo.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="vo.endDate != null">
+            and CREATION_TIME &lt;= #{vo.endDate,jdbcType=TIMESTAMP}
+        </if>
+        ORDER BY CREATION_TIME DESC
+    </sql>
+
+    <!-- 新增应用信息 -->
+    <insert id="insertAppleAppidid" parameterType="com.common.model.AppleAppididVO">
+		INSERT INTO t_apple_appidid(
+        TEAM_ID,
+        APPIDID,
+        APPIDID_PATH,
+        CREATION_TIME,
+        LAST_UPDATED_TIME
+        )
+		VALUES(
+        #{vo.teamId,jdbcType=INTEGER},
+        #{vo.appleIdId,jdbcType=VARCHAR},
+        #{vo.appleididPath,jdbcType=VARCHAR},
+        NOW(),
+        NOW()
+        )
+	</insert>
+
+    <!-- 更新应用信息 -->
+    <update id="updateAppleAppidid" parameterType="com.common.model.AppleAppididVO">
+        UPDATE t_apple_appidid
+        <set>
+            <if test="vo.teamId != null">
+                TEAM_ID = #{vo.teamId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.appleIdId != null">
+                APPIDID = #{vo.appleIdId,jdbcType=VARCHAR},
+            </if>
+            <if test="vo.appleididPath != null">
+                APPIDID_PATH = #{vo.appleididPath,jdbcType=VARCHAR},
+            </if>
+            LAST_UPDATED_TIME=NOW()
+        </set>
+        WHERE 1=1
+        <if test="vo.appleAppidid != null">
+            AND APPLE_APPIDID_ID = #{vo.appleAppidid,jdbcType=INTEGER}
+        </if>
+    </update>
+
+    <!-- 分页查询应用信息 -->
+    <select id="findByAppleAppididPage" resultType="com.common.model.AppleAppididVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_appidid
+        <include refid="search_condition"/>
+        LIMIT #{page.startIndex}, #{page.endIndex}
+    </select>
+    <select id="findByAppleAppididPageCount" resultType="int">
+        SELECT
+        COUNT(*)
+        FROM t_apple_appidid
+        <include refid="search_condition"/>
+    </select>
+
+    <!-- 列表查询应用信息 -->
+    <select id="listAppleAppidid" resultType="com.common.model.AppleAppididVO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_apple_appidid
+        <include refid="search_condition"/>
+    </select>
+
+    <!-- 删除应用信息 -->
+    <delete id="deleteAppleAppidid" parameterType="java.lang.Integer">
+        DELETE FROM t_apple_appidid
+        WHERE APPLE_APPIDID_ID IN
+        <foreach collection="vo.appleAppidids" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

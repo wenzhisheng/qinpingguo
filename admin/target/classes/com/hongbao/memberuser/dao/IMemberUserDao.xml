@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongbao.memberuser.dao.IMemberUserDao">
+
+
+  <sql id="base_sql">
+    t.MEMBER_USER_ID  memberUserId,
+    t.USER_ACCOUNT userAccount ,
+    t.TOTAL_COUNT totalCount ,
+    t.COUNT count ,
+    t.TOTAL_AMOUNT totalAmount ,
+    t.LAST_APPLY_DATE lastApplyDate  ,
+    t.CREATION_TIME creationTime,
+    t.CREATION_BY creationBy,
+    t.LAST_UPDATED_TIME lastUpdatedTime,
+    t.LAST_UPDATED_BY lastUpdatedBy
+  </sql>
+
+  <sql id="base_sql_detail">
+    t.USER_DETAIL_ID  userDetailId,
+    t.MEMBER_USER_ID  memberUserId,
+    t.USER_ACCOUNT userAccount ,
+    t.NOW_COUNT nowCount ,
+    t.AMOUNT amount ,
+    t.APPLY_DATE applyDate ,
+    t.CREATION_TIME creationTime,
+    t.CREATION_BY creationBy,
+    t.LAST_UPDATED_TIME lastUpdatedTime,
+    t.LAST_UPDATED_BY lastUpdatedBy
+  </sql>
+
+  <sql id="search_condition">
+    WHERE 1 = 1
+    <if test="vo.userAccount != null">
+      and t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+    </if>
+    order by t.LAST_UPDATED_TIME desc
+  </sql>
+
+
+  <select id="findByMemberUserResult"  resultType="com.hongbao.common.model.MemberUserVO">
+    select 
+    <include refid="base_sql" />
+    from t_member_user t
+    <include refid="search_condition"/>
+    LIMIT #{page.startIndex},#{page.endIndex}
+  </select>
+  
+  <select id="findByMemberUserResultCount" resultType="int">
+    select 
+    count(0)
+    from t_member_user t
+    <include refid="search_condition"/>
+  </select>
+
+  <select id="findByMemberUserDetailList"  resultType="com.hongbao.common.model.MemberUserVO">
+    select
+    <include refid="base_sql_detail" />
+    from T_USER_DETAIL t
+    where t.MEMBER_USER_ID = #{vo.memberUserId}
+    order by t.NOW_COUNT desc
+  </select>
+  
+  <delete id="deleteMemberUser" >
+    delete from t_member_user
+     <!-- where 1 = 1 MEMBER_USER_ID = #{memberUserId,jdbcType=INTEGER} -->
+  </delete>
+
+  <delete id="deleteMemberUserDetail" >
+    delete from T_USER_DETAIL
+         <!-- where 1 = 1 MEMBER_USER_ID = #{memberUserId,jdbcType=INTEGER}*/ -->
+  </delete>
+
+  <update id="updateMemberUser" >
+    update t_member_user
+    <set>
+      <if test="vo.userAccount != null">
+        USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.totalCount != null">
+        TOTAL_COUNT = #{vo.totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="vo.count != null">
+        COUNT = #{vo.count,jdbcType=INTEGER},
+      </if>
+      <if test="vo.totalAmount != null">
+        TOTAL_AMOUNT = #{vo.totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="vo.lastApplyDate != null">
+        LAST_APPLY_DATE = #{vo.lastApplyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_TIME = sysdate(),
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_BY = #{vo.currentUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MEMBER_USER_ID = #{vo.memberUserId,jdbcType=INTEGER}
+  </update>
+
+  <insert id="batchSaveMemberUser" parameterType="java.util.List">
+    insert into t_member_user ( USER_ACCOUNT, TOTAL_COUNT,
+    COUNT, TOTAL_AMOUNT, LAST_APPLY_DATE,
+    CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME,
+    LAST_UPDATED_BY)
+    values (
+    <foreach collection="list" item="item" index="index" separator="),(">
+      #{item.userAccount,jdbcType=VARCHAR}, getId(#{item.receiveTypeId,jdbcType=INTEGER}),
+      #{item.count,jdbcType=INTEGER}, #{item.totalAmount,jdbcType=DECIMAL}, #{item.lastApplyDate,jdbcType=TIMESTAMP},
+      SYSDATE(), #{item.currentUser,jdbcType=VARCHAR}, SYSDATE(),
+      #{item.currentUser,jdbcType=VARCHAR}
+    </foreach>
+    );
+  </insert>
+
+  <select id="findByMemberUser"  resultType="com.hongbao.common.model.MemberUserVO">
+    select
+    <include refid="base_sql" />
+    from t_member_user t
+    where  1 = 1
+    <if test="vo.userAccount != null">
+      and t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <select id="findbyMemberUserTotalAmount"  resultType="java.math.BigDecimal">
+    select
+    SUM(t.TOTAL_AMOUNT)
+    from t_member_user t
+    where  t.TOTAL_COUNT = #{vo.totalCount}
+  </select>
+
+  <select id="findByMemberUserCount"  resultType="int">
+    select
+    count(0) * t.TOTAL_COUNT - SUM(t.COUNT)
+    from t_member_user t
+    where  t.TOTAL_COUNT = #{vo.totalCount}
+  </select>
+
+  <insert id="insertMemberUserDetail" >
+    insert into T_USER_DETAIL ( MEMBER_USER_ID, USER_ACCOUNT,
+    NOW_COUNT,AMOUNT,APPLY_DATE,
+    CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME,
+    LAST_UPDATED_BY)
+    values (#{vo.memberUserId,jdbcType=INTEGER}, #{vo.userAccount,jdbcType=VARCHAR},
+    #{vo.nowCount,jdbcType=INTEGER},#{vo.amount,jdbcType=DECIMAL},SYSDATE(),
+    SYSDATE(), #{vo.currentUser,jdbcType=VARCHAR}, SYSDATE(),
+    #{vo.currentUser,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="findByMemberUserDetailCount"  resultType="int">
+    select
+    count(0)
+    from T_USER_DETAIL t
+    where  t.USER_ACCOUNT = #{vo.userAccount}
+  </select>
+
+  <select id="findByUserDetailListPC"  resultType="com.hongbao.common.model.MemberUserVO">
+    select
+    getXingHao(t.USER_ACCOUNT) userAccount ,t.APPLY_DATE applyDate,t.amount amount
+    from T_USER_DETAIL t
+    order by t.CREATION_TIME desc
+  </select>
+
+</mapper>

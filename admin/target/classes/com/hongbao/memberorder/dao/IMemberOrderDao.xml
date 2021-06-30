@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongbao.memberorder.dao.IMemberOrderDao">
+
+  <sql id="base_sql">
+    t.MEMBER_ORDER_ID memberOrderId ,
+    t.USER_ACCOUNT userAccount ,
+    t.TOTAL_COUNT totalCount ,
+    t.NOW_COUNT nowCount ,
+    t.AMOUNT amount ,
+    t.STATUS status ,
+    t.HANDLE_PERSON handlePerson ,
+    t.CREATION_TIME creationTime,
+    t.CREATION_BY creationBy,
+    t.LAST_UPDATED_TIME lastUpdatedTime,
+    t.LAST_UPDATED_BY lastUpdatedBy
+  </sql>
+
+  <sql id="search_condition">
+    WHERE 1 = 1
+    <if test="vo.userAccount != null">
+      and t.USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR}
+    </if>
+    order by t.LAST_UPDATED_TIME desc
+  </sql>
+
+
+  <select id="findByMemberOrderPageResult"  resultType="com.hongbao.common.model.MemberOrderVO">
+    select
+    <include refid="base_sql" />
+    from t_member_order t
+    <include refid="search_condition"/>
+    LIMIT #{page.startIndex},#{page.endIndex}
+  </select>
+
+  <select id="findByMemberOrderPageResultCount"  resultType="int">
+    select
+    count(0)
+    from t_member_order t
+    <include refid="search_condition"/>
+  </select>
+
+  <insert id="insertMemberOrder" >
+    insert into t_member_order ( USER_ACCOUNT, TOTAL_COUNT, 
+      NOW_COUNT, AMOUNT,STATUS, HANDLE_PERSON,
+      CREATION_TIME, CREATION_BY, LAST_UPDATED_TIME, 
+      LAST_UPDATED_BY)
+    values ( #{vo.userAccount,jdbcType=VARCHAR}, #{vo.totalCount,jdbcType=INTEGER}, 
+      #{vo.nowCount,jdbcType=INTEGER}, #{vo.amount,jdbcType=DECIMAL}, #{vo.status,jdbcType=CHAR},  #{vo.handlePerson,jdbcType=VARCHAR},
+      SYSDATE(), #{vo.currentUser,jdbcType=VARCHAR}, SYSDATE(), 
+      #{vo.currentUser,jdbcType=VARCHAR})
+  </insert>
+  
+  <update id="updateMemberOrder" >
+    update t_member_order
+    <set>
+      <if test="vo.userAccount != null">
+        USER_ACCOUNT = #{vo.userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="vo.totalCount != null">
+        TOTAL_COUNT = #{vo.totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="vo.nowCount != null">
+        NOW_COUNT = #{vo.nowCount,jdbcType=INTEGER},
+      </if>
+      <if test="vo.amount != null">
+        AMOUNT = #{vo.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="vo.status != null">
+        STATUS =  #{vo.status,jdbcType=CHAR},
+      </if>
+      <if test="vo.handlePerson != null">
+        HANDLE_PERSON = #{vo.currentUser,jdbcType=VARCHAR},
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_TIME = sysdate(),
+      </if>
+      <if test="1 == 1">
+        LAST_UPDATED_BY = #{vo.currentUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MEMBER_ORDER_ID = #{vo.memberOrderId,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteMemberOrder" >
+    delete from t_member_order
+    where MEMBER_ORDER_ID = #{vo.memberOrderId,jdbcType=INTEGER}
+  </delete>
+
+  <select id="findByMemberOrderList"  resultType="com.hongbao.common.model.MemberOrderVO">
+    select
+    <include refid="base_sql" />
+    from t_member_order t
+    where t.USER_ACCOUNT = #{vo.userAccount}
+  </select>
+
+  <select id="findByMemberOrderCount"  resultType="int">
+    select
+    COUNT(0)
+    from t_member_order t
+    where t.USER_ACCOUNT = #{vo.userAccount}
+  </select>
+
+</mapper>
